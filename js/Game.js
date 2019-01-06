@@ -44,4 +44,20 @@ class Game {
     this.activePhrase.addPhraseToDisplay();
   };
 
+  /**
+  * Checks for winning move
+  * @return {boolean} True if game has been won, false if game wasn't
+  won
+  */
+  checkForWin() {
+    const lis = document.querySelectorAll('li');
+    for (let i = 0; i < lis.length; i++) {
+      if (lis[i].className.includes("hide letter")) {
+        return false;
+      } else {
+        return true;
+      }
+    }
+  };
+
 }
