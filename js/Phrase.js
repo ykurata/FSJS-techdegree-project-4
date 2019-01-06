@@ -19,4 +19,28 @@ class Phrase {
       ul.appendChild(li);
     }
   };
+
+  /**
+  * Checks if passed letter is in phrase
+  * @param (string) letter - Letter to check
+  */
+  checkLetter(letter) {
+    if (this.phrase.includes(letter)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  /**
+  * Displays passed letter on screen after a match is found
+  * @param (string) letter - Letter to display
+  */
+  showMatchedLetter(letter) {
+    if (this.checkLetter(letter) === true) {
+      const hiddenLetter = document.getElementsByClassName(`hide letter ${letter}`)[0];
+      hiddenLetter.className = "show";
+    }
+  };
+  
 }
