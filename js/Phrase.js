@@ -37,10 +37,13 @@ class Phrase {
   * @param (string) letter - Letter to display
   */
   showMatchedLetter(letter) {
-    if (this.checkLetter(letter) === true) {
-      const hiddenLetter = document.getElementsByClassName(`hide letter ${letter}`)[0];
-      hiddenLetter.className = "show";
-    }
+    const lis = document.querySelectorAll('li');
+    lis.forEach(li => {
+      if (li.textContent === letter) {
+        li.classList.remove('hide');
+        li.classList.add('show');
+      }
+    });
   };
-  
+
 }
