@@ -58,4 +58,37 @@ class Game {
     }
   };
 
+  /**
+  * Increases the value of the missed property
+  * Removes a life from the scoreboard
+  * Checks if player has remaining lives and ends game if player is out
+  */
+  removeLife() {
+    this.missed += 1;
+    const hearts = document.querySelectorAll('img');
+    for (let i = 0; i < this.missed; i ++) {
+      hearts[i].src = "images/lostHeart.png";
+    }
+    if (this.missed === 5) {
+      this.gameOver();
+    }
+  };
+
+  /**
+  * Displays game over message
+  * @param {boolean} gameWon - Whether or not the user won the game
+  */
+  gameOver(gameWon) {
+    const gameOverMessage = document.getElementById('game-over-message');
+    const overLay = document.getElementById('overlay');
+    if (gameWon === true) {
+      gameOverMessage.innerHTML = "Great job!";
+      overLay.style.display = "block";
+      overLay.className = "win";
+    } else {
+      gameOverMessage.innerHTML = "Sorry, better luch next time!";
+      overLay.className = "lose";
+      overLay.style.display = "block";
+    }
+  };
 }
