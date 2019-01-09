@@ -14,7 +14,7 @@ class Game {
       "Barking up the wrong tree",
       "Faith will move mountains",
       "A drop in the bucket",
-      "Nail you color to the mast",
+      "How are you",
       "Safe as houses",
     ]
 
@@ -70,7 +70,7 @@ class Game {
       hearts[i].src = "images/lostHeart.png";
     }
     if (this.missed === 5) {
-      this.gameOver();
+      this.gameOver(false);
     }
   };
 
@@ -90,5 +90,39 @@ class Game {
       overLay.className = "lose";
       overLay.style.display = "block";
     }
+    this.resetGame();
   };
+
+  /**
+  * Handles onscreen keyboard button clicks
+  * @param (HTMLButtonElement) button - The clicked button element
+  */
+  handleInteraction(button) {
+    button.disabled = true;
+    if (!this.activePhrase.phrase.includes(button.textContent)) {
+      button.className = "wrong";
+      this.removeLife();
+    } else {
+      button.className = "chosen";
+      this.activePhrase.showMatchedLetter(button.textContent);
+      if (this.checkForWin() === true) {
+        this.gameOver(true);
+      }
+    }
+  };
+
+  resetGame() {
+    this.missed = 0;
+    document.querySelector('ul').innerHTML = " ";
+    const keys = document.querySelectorAll('button');
+    keys.forEach(key => {
+      key.disabled = false;
+      key.className = "key";
+    });
+    const heartImages = document.querySelectorAll('img');
+    heartImages.forEach(image => {
+      image.src = "images/liveHeart.png";
+    });
+  };
+
 }

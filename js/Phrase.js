@@ -12,9 +12,9 @@ class Phrase {
       const li = document.createElement('LI');
       const letter = this.phrase[i];
       li.textContent = letter;
-      li.setAttribute('class', `hide letter ${letter}`);
+      li.className = `hide letter ${letter}`;
       if (letter === " ") {
-        li.setAttribute('class', 'space');
+        li.className = 'space';
       }
       ul.appendChild(li);
     }
