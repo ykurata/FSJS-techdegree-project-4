@@ -9,5 +9,5 @@ startButton.addEventListener('click', function() {
 keys.forEach(key => {
   key.addEventListener('click', function() {
     game.handleInteraction(key);
-  })
-})
+  });
+});

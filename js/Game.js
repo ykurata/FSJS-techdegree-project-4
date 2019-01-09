@@ -39,7 +39,7 @@ class Game {
   * Begins game by selecting a random phrase and displaying it to user
   */
   startGame() {
-    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('overlay').style.visibility = 'hidden';
     this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
   };
@@ -83,12 +83,12 @@ class Game {
     const overLay = document.getElementById('overlay');
     if (gameWon === true) {
       gameOverMessage.innerHTML = "Great job!";
-      overLay.style.display = "block";
       overLay.className = "win";
+      overLay.style.visibility = 'visible';
     } else {
       gameOverMessage.innerHTML = "Sorry, better luch next time!";
       overLay.className = "lose";
-      overLay.style.display = "block";
+      overLay.style.visibility = 'visible';
     }
     this.resetGame();
   };
