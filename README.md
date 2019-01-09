@@ -53,4 +53,10 @@ After building this project, you'll have another great portfolio piece to show o
 
 * Add good code comments
 
-* Check for cross-browser consistency    
+* Check for cross-browser consistency
+
+## Extra credit
+
+* Add keyboard functionality
+
+* Making the project your own    
