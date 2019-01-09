@@ -111,6 +111,11 @@ class Game {
     }
   };
 
+
+  /**
+  * remove all li elemets from ul
+  * reset all key buttons and heart images
+  */
   resetGame() {
     this.missed = 0;
     document.querySelector('ul').innerHTML = " ";
